@@ -1,8 +1,9 @@
 import { useState } from "react";
-import logo from "../../assets/logoisp20.png";
+import logo from "../../assets/mono.proyec.win.jpg";
 export default function Alumno({ alumno, curso, anio }) {
   const [nombre, setNombre] = useState(alumno);
   const [mostrarImagen, setMostrarImagen] = useState(true);
+  
 
   return (
     <div>
@@ -27,7 +28,7 @@ export default function Alumno({ alumno, curso, anio }) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Ir a Harry Potter
+        Ir el Planeta Tierra
       </a>
     </div>
   );
