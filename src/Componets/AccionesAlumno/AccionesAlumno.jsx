@@ -1,7 +1,7 @@
 import {useState} from "react";
 export default function AccionesAlumno() {
-  const [mostrarTitulo, setMostrarTitulo] = useState(true);
-  const [mostrarBotonVer, setMostrarBotonVer] = useState(true);
+  const [mostrarTitulo, setMostrarTitulo] = useState(false);
+  const [mostrarBotonVer, setMostrarBotonVer] = useState(false);
 
   function mostrarAlertaVerAcciones() {
     console.log("Ver acciones del alumno Nico Marquez");

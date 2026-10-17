@@ -1,7 +1,8 @@
 import { useState } from 'react'
 
 export default function Contador() {
-  const [numero, setNumero] = useState(10)
+  const [numero, setNumero] = useState(0)
+  const [mostrarBotonVer, setMostrarBotonVer] = useState(true)
 
   function incrementar() {
     setNumero(numero + 1)
@@ -11,7 +12,7 @@ export default function Contador() {
   return (
     <>
       <p>{numero}</p>
-      <button onClick={incrementar}>Incrementar</button>
+      {mostrarBotonVer && (<button onClick={incrementar}>Incrementar</button>)}
     </>
   )
 }

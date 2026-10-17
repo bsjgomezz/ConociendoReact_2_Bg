@@ -11,7 +11,7 @@ export default function Alumno({ alumno, curso, anio }) {
       <p>Curso: {curso}</p>
       <p>Año: {anio}</p>
       <p>Suma: {10 + 20}</p>
-      {mostrarImagen && <img src={logo} width={100} alt="Logo ISP20" />}
+      {mostrarImagen && <img src={logo} width={200} height={250} alt="Logo ISP20" />}
       <br />
       <label htmlFor="nombre">Nombre:</label>
       <input type="text" id="nombre" name="nombre" value={nombre}
@@ -28,7 +28,7 @@ export default function Alumno({ alumno, curso, anio }) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Ir el Planeta Tierra
+        Ir al Júpiter
       </a>
     </div>
   );

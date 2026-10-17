@@ -1,14 +1,60 @@
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { Button, Card , CardHeader, CardContent, CardActions } from "@mui/material";
 
-
-export default function Cliente({firstname, lastname, dni, address, id, onEliminar}) {
-    return (
-    <div>
-      <h2>{firstname} {lastname}</h2>
-      <p>DNI: {dni}</p>
-      <p>Dirección: {address}</p>
-      <p>id: {id}</p>
-      <button onClick={() => {onEliminar(id);}}>Eliminar Cliente</button>
-    </div>
+export default function Cliente({ cliente,
+  clienteSeleccionado,
+  onEliminar,
+  onSeleccionar,
+  onModificar,
+ }) {
+  const Swal2 = withReactContent(Swal);
+  const configuracionVentana = {
+    title: '¿Estás seguro?',
+    text: "¡No podrás revertir esto!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sí, eliminarlo!'
+  }
+  const onEliminarAdvertencia = (id) => {
+    Swal2.fire(configuracionVentana)
+        .then((result) => {
+          if (result.isConfirmed) {
+            onEliminar(id);
+            Swal2.fire(
+              'Eliminado!',
+              'El cliente ha sido eliminado.',
+              'success'
+            )
+          }
+        });
+  }
+  return (
+    <Card variant="outlined" sx={{ marginBottom: 2 }}>
+      <CardHeader title={`${cliente.firstname} ${cliente.lastname}`} />
+      <CardContent>
+        <p>DNI: {cliente.dni}</p>
+        <p>Dirección: {cliente.address}</p>
+      </CardContent>
+      <CardActions>
+        <Button variant="contained" color="primary" onClick={() => {
+          onSeleccionar(cliente);
+          onModificar(true);
+        }}>
+          Modificar Cliente
+        </Button>
+        <Button variant="contained" color={onModificar ? "secondary" : "primary"}
+         onClick={() => {
+            onSeleccionar(cliente);
+          }}>
+          {clienteSeleccionado ? "Seleccionado" : "Seleccionar Cliente"}
+        </Button>
+        <Button variant="contained" color="error" onClick={() => onEliminarAdvertencia(cliente.id)}>
+          Eliminar Cliente
+        </Button>
+      </CardActions>
+    </Card>
   );
 }
-    

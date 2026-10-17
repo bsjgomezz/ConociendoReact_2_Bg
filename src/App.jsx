@@ -4,7 +4,7 @@ import AccionesAlumno from './Componets/AccionesAlumno/AccionesAlumno.jsx'
 import Contador from './Componets/Contador/Contador.jsx'
 import Alumno from './Componets/Alumno/Alumno.jsx'
 import ClienteList from './ClienteList/ClienteList.jsx'
-
+import LocalidadesList from './LocalidadesList/LocalidadesList.jsx'
 export default function App() {
   return (
     <>
@@ -14,6 +14,7 @@ export default function App() {
       <AccionesAlumno />
       <Contador />
       <ClienteList />
+      <LocalidadesList />
     </>
   )
 }
